@@ -1,18 +1,148 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head> 
+
+<html lang="hu">
+
+<head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Erasmus+ App</title>
-    <link rel="stylesheet" href="/static/style.css"> 
-</head> 
-<body> 
-    <h1>Üdvözlünk az Erasmus+ App-ban!</h1>
-    <nav> 
-        <a href="/events">Események</a> 
-        <a href="/submit">Pályázat beküldése</a> 
-        <a href="/profile">Profil</a> 
-    </nav> 
-    <p>Ez az oldal segít eligazodni az Erasmus+ programban.</p> 
-</body> 
+
+
+    <script>
+
+        function changeLanguage(language) {
+
+            // Példa: Átváltás különböző nyelvi verziókra (logika testreszabható)
+
+            if (language === "en") {
+
+                alert("Language switched to English!");
+
+                // Ide kerülhet az angol nyelvű szövegek betöltése.
+
+            } else if (language === "hu") {
+
+                alert("Nyelv magyarra váltva!");
+
+                // Ide kerülhet a magyar nyelvű szövegek betöltése.
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Erasmus+ App</h1>
+
+        <p>Pályázatok beküldése és profilkezelés</p>
+
+        <div class="language-selector">
+
+            <label for="language">Nyelv:</label>
+
+            <select id="language" onchange="changeLanguage(this.value)">
+
+                <option value="hu" selected>Magyar</option>
+
+                <option value="en">English</option>
+
+            </select>
+
+        </div>
+
+    </header>
+
+    <nav>
+
+        <a href="#profile">Profil létrehozása</a>
+
+        <a href="#submit-application">Pályázat beküldése</a>
+
+        <a href="#contact">Kapcsolat</a>
+
+    </nav>
+
+    <main>
+
+        <section id="profile" class="form-section">
+
+            <h2>Profil Létrehozása</h2>
+
+            <form action="/create-profile" method="POST">
+
+                <label for="username">Felhasználónév:</label>
+
+                <input type="text" id="username" name="username" placeholder="Add meg a felhasználóneved" required>
+
+                
+
+                <label for="email">E-mail cím:</label>
+
+                <input type="email" id="email" name="email" placeholder="Add meg az e-mail címed" required>
+
+                
+
+                <label for="password">Jelszó:</label>
+
+                <input type="password" id="password" name="password" placeholder="Add meg a jelszavad" required>
+
+                
+
+                <button type="submit">Profil létrehozása</button>
+
+            </form>
+
+        </section>
+
+        
+
+        <section id="submit-application" class="form-section">
+
+            <h2>Pályázat Beküldése</h2>
+
+            <form action="/submit-application" method="POST" enctype="multipart/form-data">
+
+                <label for="program-name">Program neve:</label>
+
+                <input type="text" id="program-name" name="program-name" placeholder="Pl. Erasmus+ Youth Exchange" required>
+
+                
+
+                <label for="location">Helyszín:</label>
+
+                <input type="text" id="location" name="location" placeholder="Pl. Budapest" required>
+
+                
+
+                <label for="description">Leírás:</label>
+
+                <textarea id="description" name="description" rows="5" placeholder="Írj rövid összefoglalót a pályázatodról" required></textarea>
+
+                
+
+                <label for="file-upload">Dokumentum feltöltése:</label>
+
+                <input type="file" id="file-upload" name="file-upload" accept=".pdf,.docx,.txt" required>
+
+                
+
+                <button type="submit">Pályázat beküldése</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
 </html>
