@@ -222,86 +222,93 @@ h2 {
 
     <nav>
 
-        <a href="#profile">Profil létrehozása</a>
+      <!-- Regisztráció és Bejelentkezés -->
+    <section id="auth">
+        <h2>Felhasználói regisztráció és bejelentkezés</h2>
+        <form action="register.html" method="POST" id="register-form">
+            <label for="email">E-mail cím:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Jelszó:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Regisztráció</button>
+        </form>
 
-        <a href="#submit-application">Pályázat beküldése</a>
+        <form action="login.html" method="POST" id="login-form">
+            <label for="login-email">E-mail cím:</label>
+            <input type="email" id="login-email" name="login-email" required><br>
+            <label for="login-password">Jelszó:</label>
+            <input type="password" id="login-password" name="login-password" required><br>
+            <button type="submit">Bejelentkezés</button>
+        </form>
+    </section>
 
-        <a href="#contact">Kapcsolat</a>
+    <!-- Programböngészés szűrőkkel -->
+    <section id="programs">
+        <h2>Programok böngészése</h2>
+        <form id="search-form">
+            <label for="country">Ország:</label>
+            <input type="text" id="country" name="country"><br>
+            <label for="date">Dátum:</label>
+            <input type="date" id="date" name="date"><br>
+            <label for="type">Típus:</label>
+            <select id="type" name="type">
+                <option value="study">Tanulmányi csere</option>
+                <option value="training">Képzés</option>
+                <option value="volunteering">Önkéntes munka</option>
+            </select><br>
+            <button type="submit">Keresés</button>
+        </form>
+    </section>
 
-    </nav>
+    <!-- Jelentkezési űrlap és dokumentumfeltöltés -->
+    <section id="application">
+        <h2>Jelentkezési űrlap</h2>
+        <form action="submit_application.html" method="POST" enctype="multipart/form-data">
+            <label for="cv">Önéletrajz (PDF):</label>
+            <input type="file" id="cv" name="cv" accept="application/pdf" required><br>
+            <label for="motivation">Motivációs levél (PDF):</label>
+            <input type="file" id="motivation" name="motivation" accept="application/pdf" required><br>
+            <button type="submit">Jelentkezés</button>
+        </form>
+    </section>
 
-    <main>
+    <!-- Chat funkció -->
+    <section id="chat">
+        <h2>Chat funkció</h2>
+        <div id="chat-box">
+            <!-- Üzenetek megjelenítése itt -->
+        </div>
+        <textarea id="message" placeholder="Írj egy üzenetet..."></textarea>
+        <button id="send-message">Üzenet küldése</button>
+    </section>
 
-        <section id="profile" class="form-section">
+    <!-- Adminisztrációs modul (Szervezőknek) -->
+    <section id="admin">
+        <h2>Szervezői adminisztráció</h2>
+        <form id="add-program-form">
+            <label for="program-name">Program neve:</label>
+            <input type="text" id="program-name" name="program-name" required><br>
+            <label for="program-date">Dátum:</label>
+            <input type="date" id="program-date" name="program-date" required><br>
+            <label for="program-type">Típus:</label>
+            <select id="program-type" name="program-type">
+                <option value="study">Tanulmányi csere</option>
+                <option value="training">Képzés</option>
+                <option value="volunteering">Önkéntes munka</option>
+            </select><br>
+            <button type="submit">Program hozzáadása</button>
+        </form>
+        <button id="view-participants">Résztvevők megtekintése</button>
+    </section>
 
-            <h2>Profil Létrehozása</h2>
+    <!-- Értesítési rendszer -->
+    <section id="notifications">
+        <h2>Értesítések</h2>
+        <p id="push-notifications">Push értesítések: <button id="enable-push">Engedélyezés</button></p>
+        <p id="email-notifications">E-mail értesítések: <button id="enable-email">Engedélyezés</button></p>
+    </section>
 
-            <form action="/create-profile" method="POST">
-
-                <label for="username">Felhasználónév:</label>
-
-                <input type="text" id="username" name="username" placeholder="Add meg a felhasználóneved" required>
-
-                
-
-                <label for="email">E-mail cím:</label>
-
-                <input type="email" id="email" name="email" placeholder="Add meg az e-mail címed" required>
-
-                
-
-                <label for="password">Jelszó:</label>
-
-                <input type="password" id="password" name="password" placeholder="Add meg a jelszavad" required>
-
-                
-
-                <button type="submit">Profil létrehozása</button>
-
-            </form>
-
-        </section>
-
-        
-
-        <section id="submit-application" class="form-section">
-
-            <h2>Pályázat Beküldése</h2>
-
-            <form action="/submit-application" method="POST" enctype="multipart/form-data">
-
-                <label for="program-name">Program neve:</label>
-
-                <input type="text" id="program-name" name="program-name" placeholder="Pl. Erasmus+ Youth Exchange" required>
-
-                
-
-                <label for="location">Helyszín:</label>
-
-                <input type="text" id="location" name="location" placeholder="Pl. Budapest" required>
-
-                
-
-                <label for="description">Leírás:</label>
-
-                <textarea id="description" name="description" rows="5" placeholder="Írj rövid összefoglalót a pályázatodról" required></textarea>
-
-                
-
-                <label for="file-upload">Dokumentum feltöltése:</label>
-
-                <input type="file" id="file-upload" name="file-upload" accept=".pdf,.docx,.txt" required>
-
-                
-
-                <button type="submit">Pályázat beküldése</button>
-
-            </form>
-
-        </section>
-
-    </main>
-
+    <script src="scripts.js"></script>
 </body>
-
 </html>
+
