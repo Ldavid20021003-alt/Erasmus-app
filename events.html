@@ -1,0 +1,15 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Események</title> 
+</head> 
+<body> 
+    <h1>Események</h1>
+    <ul> 
+        {% for event in events %} 
+        <li>{{ event.title }} - {{ event.date }}</li> 
+        {% endfor %} 
+    </ul> 
+</body> 
+</html>
